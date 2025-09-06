@@ -1,12 +1,22 @@
 class Solution {
 public:
-    int makeTheIntegerZero(int num1, int num2) {
-        for (int t = 1; t <= 60; t++) {
-            long long s = (long long)num1 - (long long)t * num2;
-            if (s < 0) continue;
-            if (s < t) continue;
-            int ones = __builtin_popcountll(s);
-            if (ones <= t) return t;
+    int makeTheIntegerZero(long long int num1,long long int num2) {
+        for(int i=1;i<=32;i++){
+            if(num1<=num2){
+                return -1;
+            }else{
+                num1-=num2;
+                int sum=0;
+                long long l=num1;
+                while(l>0){
+                    sum+=l%2;
+                    l=l/2;
+                }
+                cout<<sum<<endl;
+                if(sum<=i && num1>=i){
+                    return i;
+                }
+            }
         }
         return -1;
     }
