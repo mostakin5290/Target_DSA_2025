@@ -1,9 +1,9 @@
 class Solution {
 public:
     vector<int> replaceNonCoprimes(vector<int>& nums) {
-       vector<int>result;
+        vector<int>result;
 
-       for(int num:nums){
+        for(int num:nums){
 
             while(!result.empty()){
                 int prev = result.back();
@@ -14,12 +14,13 @@ public:
                     break;
                 }
                 result.pop_back();
-                int LCM = prev / GCD * curr;
+                int LCM = prev/GCD*curr;
                 num = LCM;
             }
-            result.push_back(num);
-       } 
 
-       return result;
-     }
+            result.push_back(num);
+        }
+
+        return result;
+    }
 };
