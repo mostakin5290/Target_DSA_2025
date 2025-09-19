@@ -1,6 +1,6 @@
 class Spreadsheet {
 public:
-    map <string,int> un;
+    unordered_map <string,int> un;
     Spreadsheet(int rows) {
         
     }
