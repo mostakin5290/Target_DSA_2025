@@ -6,7 +6,7 @@ public:
         string result = "";
 
         // Handle sign
-        if ((long long)num  * (long long) den < 0) result += "-";
+        if ((num < 0) ^ (den < 0)) result += "-";
 
         // Work with positive values as long long
         long long absNum = llabs((long long)num);
