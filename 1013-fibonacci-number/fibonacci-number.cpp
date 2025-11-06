@@ -1,12 +1,9 @@
 class Solution {
 public:
     int fib(int n) {
-        vector<int>v(n+3);
-        v[0]=0;
-        v[1]=1;
-       for(int i = 2 ; i<=n ; i++)
-        v[i]=v[i-1]+v[i-2];
-       
-       return v[n];
+        vector<int> f(n+3);
+        f[0]=0; f[1]=1;
+        for(int i=2;i<=n;++i) f[i]=f[i-1]+f[i-2];
+        return f[n];
     }
 };
