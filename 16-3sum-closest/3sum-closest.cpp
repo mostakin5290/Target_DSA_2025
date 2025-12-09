@@ -2,7 +2,7 @@ class Solution {
 public:
     int threeSumClosest(vector<int>& nums, int target) {
         sort(nums.begin(), nums.end());
-        int closestSum = 1000000000;
+        int closestSum = 10000000;
         int n = nums.size();
         for (int i = 0; i < n - 2; i++) {
 
