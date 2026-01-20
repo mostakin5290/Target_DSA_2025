@@ -6,13 +6,13 @@ public:
         int n = nums.size();
         for(int i = 0;i<n;i++){
             int require = target - nums[i];
-            if(mp.find(require) == mp.end()){
-                mp[nums[i]]=i;
-            }
-            else{
+            if(mp.find(require) != mp.end()){
                 ans.push_back(mp[require]);
                 ans.push_back(i);
                 break;
+            }
+            else{
+                mp[nums[i]]=i;
             }
         }
         return ans;
