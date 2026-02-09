@@ -11,7 +11,8 @@
  */
 class Solution {
 public:
-    void InOrder(TreeNode* root ,vector<int>& vec  ){
+
+    void InOrder(TreeNode* root,vector<int>& vec){
         if(!root)return;
 
         InOrder(root->left,vec);
@@ -19,24 +20,24 @@ public:
         InOrder(root->right,vec);
     }
 
-    TreeNode* Worker(int l,int r,vector<int>&vec){
-        if(l>r)return NULL;
+    TreeNode* Worker(int l , int r , vector<int>& vec){
+        if(l>r)return nullptr;
 
         int mid = l+(r-l)/2;
 
         TreeNode* root = new TreeNode(vec[mid]);
         root->left = Worker(l,mid-1,vec);
-        root->right= Worker(mid+1,r,vec);
+        root->right = Worker(mid+1,r,vec);
 
         return root;
+
     }
 
 
     TreeNode* balanceBST(TreeNode* root) {
-        vector<int>vec;
+        vector<int> vec;
         InOrder(root,vec);
-        int l = 0;
-        int r = vec.size()-1;
+        int l=0,r=vec.size()-1;
         return Worker(l,r,vec);
     }
 };
