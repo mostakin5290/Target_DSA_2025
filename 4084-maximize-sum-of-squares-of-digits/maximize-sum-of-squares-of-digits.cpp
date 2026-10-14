@@ -1,30 +1,22 @@
+
 class Solution {
 public:
     string maxSumOfSquares(int num, int sum) {
+        if (sum > 9 * num) return "";
+
         string ans = "";
-        while(sum){
-            if(sum>=9){
-                sum -=9;
-                ans +='9';
-            }
-            else{
-                ans += std::to_string(sum);
-                sum -=sum;
-            }
+        
+        int nines = sum / 9;
+        int rem = sum % 9;
+
+        ans.append(nines, '9');
+
+        if (rem > 0) {
+            ans += to_string(rem);
         }
 
-        int n = ans.length();
-        if(num<n) return "";
-        if(num!=n){
-            int temp = num - n ;
-            cout<<temp;
-            while(temp>0) {
-                ans+='0';
-                temp --;
-            }
-        }
+        ans.append(num - ans.length(), '0');
 
         return ans;
-
     }
 };
